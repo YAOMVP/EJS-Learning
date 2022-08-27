@@ -10,13 +10,24 @@
 
 <body>
     <h1>HAPPY DAY, haha Happy everyday!</h1>
-    <% if(kindOfDay==="Saturday"){ %>
-        <h1 style="color:purple">
-            <%= kindOfDay %> To Do List</h1>
-        <% } else { %>
-            <h1 style="color: pink">
-                <%= kindOfDay %>List</h1>
+    <h1>
+        <%= kindOfDay %>
+    </h1>
+    <ul>
+
+        <!-- newListItems it is the key that contains the value of 'inputs'  -->
+        <% for(let i =0; i<newListItems.length;i++){ %>
+            <li>
+                <%= newListItems[i]  %>
+            </li>
             <% } %>
+
+    </ul>
+
+    <form action="/" method="post">
+        <input type="text" name="newItem">
+        <button type="submit" type="submit">Add</button>
+    </form>
 
 </body>
 
