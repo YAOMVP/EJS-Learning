@@ -10,8 +10,14 @@
 
 <body>
     <h1>HAPPY DAY, haha Happy everyday!</h1>
-    <h1>It's
-        <%= kindOfDay %>!</h1>
+    <% if(kindOfDay==="Saturday"){ %>
+        <h1 style="color:purple">
+            <%= kindOfDay %> To Do List</h1>
+        <% } else { %>
+            <h1 style="color: pink">
+                <%= kindOfDay %>List</h1>
+            <% } %>
+
 </body>
 
 </html>
