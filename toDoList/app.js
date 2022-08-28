@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static("public")); //Tell Express to serve up this public folder as a static resource.
+
 app.post("/", (req, res) => {
     let input = req.body.newItem;
     // res.send(input);

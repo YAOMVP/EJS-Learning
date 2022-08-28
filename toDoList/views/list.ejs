@@ -6,28 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>toDoList</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <h1>HAPPY DAY, haha Happy everyday!</h1>
-    <h1>
-        <%= kindOfDay %>
-    </h1>
-    <ul>
+    <div class="box" id="heading">
+        <h1>
+            <%= kindOfDay %>
+        </h1>
+    </div>
 
+    <div class="box">
         <!-- newListItems it is the key that contains the value of 'inputs'  -->
         <% for(let i =0; i<newListItems.length;i++){ %>
-            <li>
-                <%= newListItems[i]  %>
-            </li>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%= newListItems[i]  %>
+                </p>
+            </div>
             <% } %>
 
-    </ul>
+                <form class="item" action="/" method="post">
+                    <input type="text" name="newItem" placeholder="NEW ITEM" autocomplete="off">
+                    <button type="submit" type="submit">+</button>
+                </form>
 
-    <form action="/" method="post">
-        <input type="text" name="newItem">
-        <button type="submit" type="submit">Add</button>
-    </form>
+    </div>
+
+
+
+
+
+
+
 
 </body>
 
