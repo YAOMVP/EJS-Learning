@@ -11,7 +11,7 @@ h1 {
 }
 
 .box {
-    max-width: 400px;
+    max-width: 450px;
     margin: 50px auto;
     background: white;
     border-radius: 5px;
@@ -24,10 +24,10 @@ h1 {
 }
 
 .item {
-    min-height: 70px;
+    min-height: 80px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid #DEB6AB;
 }
 
 .item:last-child {
@@ -68,6 +68,12 @@ button {
     border-width: 0;
 }
 
+#deleteButton {
+    position: relative;
+    bottom: 80px;
+    right: -375px;
+}
+
 input[type="text"] {
     text-align: center;
     height: 60px;
@@ -90,7 +96,7 @@ input[type="text"]:focus {
 }
 
 footer {
-    color: white;
+    color: #E38B29;
     color: rgb (0, 0, 0, 0.5);
     text-align: center;
 }
