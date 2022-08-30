@@ -1,7 +1,7 @@
 const express = require("express");
 const getDate = require("./date");
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 const items = ["I want to eat", "Eat hot pot", "Eat lamb skewer"];
 let workItems = [];
 const date = require(__dirname + "/date.js");
@@ -64,6 +64,6 @@ app.post("/deleteItem", (req, res) => {
     }
 });
 
-app.listen(port, () => {
+app.listen(port || 3000, () => {
     console.log("Serve has started on port 3000");
 });
