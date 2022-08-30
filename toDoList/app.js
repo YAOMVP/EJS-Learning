@@ -48,7 +48,7 @@ app.post("/work", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-    res.render("/about");
+    res.render("about");
 });
 
 
