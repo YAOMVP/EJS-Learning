@@ -1,0 +1,22 @@
+<%- include("partials/header"); -%>
+    <h1>
+        Compose
+    </h1>
+
+    <form action="/compose" method="post">
+        <div class="container">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label fw-semibold">Title</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="postTitle" placeholder="Type your ideas">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label fw-semibold">Post</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="postBody"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-outline-secondary">Publish</button>
+        </div>
+    </form>
+
+    <%- include("partials/footer"); -%>
