@@ -50,7 +50,9 @@ app.post("/compose", (req, res) => {
 });
 
 
-
+app.get("/posts/:urlName", (req, res) => {
+    console.log(req.params.urlName);
+});
 
 
 
