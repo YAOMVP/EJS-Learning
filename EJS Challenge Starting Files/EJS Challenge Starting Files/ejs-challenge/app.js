@@ -49,7 +49,7 @@ app.post("/compose", (req, res) => {
     res.redirect("/");
 });
 
-
+//url
 app.get("/posts/:urlName", (req, res) => {
     console.log(req.params.urlName);
 });
