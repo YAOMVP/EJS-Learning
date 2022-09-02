@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const port = 3000;
+const _ = require("lodash");
+
 
 let posts = [];
 
@@ -17,6 +19,7 @@ app.use(express.static("public"));
 
 
 app.get("/", (req, res) => {
+
     res.render("home", {
         home: homeStartingContent,
         posts: posts
@@ -51,7 +54,28 @@ app.post("/compose", (req, res) => {
 
 //url
 app.get("/posts/:urlName", (req, res) => {
-    console.log(req.params.urlName);
+    let requestedTitle = req.params.urlName;
+    let requestedTitleLower = _.lowerCase(requestedTitle);
+
+    posts.forEach(post => {
+        let storedTitle = post.postTitle;
+        let requestedBody = post.postBody;
+
+        let storedTitleLower = _.lowerCase(storedTitle);
+
+
+        if (requestedTitleLower === storedTitleLower) {
+            console.log("Mathch found");
+            // console.log(storedTitleLower); kslfg kjfdls
+            // console.log(requestedTitleLower); kslfg kjfdls
+        }
+        res.render("post", {
+            title: requestedTitle,
+            body: requestedBody
+        })
+
+    });
+
 });
 
 
