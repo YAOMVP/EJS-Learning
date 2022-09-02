@@ -3,6 +3,7 @@ const app = express();
 const ejs = require("ejs");
 const port = 3000;
 const _ = require("lodash");
+const truncate = require("lodash.truncate");
 
 
 let posts = [];
@@ -60,6 +61,7 @@ app.get("/posts/:urlName", (req, res) => {
     posts.forEach(post => {
         let storedTitle = post.postTitle;
         let requestedBody = post.postBody;
+        console.log(requestedBody);
 
         let storedTitleLower = _.lowerCase(storedTitle);
 
@@ -68,11 +70,12 @@ app.get("/posts/:urlName", (req, res) => {
             console.log("Mathch found");
             // console.log(storedTitleLower); kslfg kjfdls
             // console.log(requestedTitleLower); kslfg kjfdls
+            res.render("post", {
+                title: requestedTitle,
+                body: requestedBody
+            })
         }
-        res.render("post", {
-            title: requestedTitle,
-            body: requestedBody
-        })
+
 
     });
 
