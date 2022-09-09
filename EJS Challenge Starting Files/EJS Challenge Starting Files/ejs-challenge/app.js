@@ -27,8 +27,6 @@ app.get("/", (req, res) => {
         home: homeStartingContent,
         posts: posts
     });
-
-
 });
 
 app.get("/about", (req, res) => {
