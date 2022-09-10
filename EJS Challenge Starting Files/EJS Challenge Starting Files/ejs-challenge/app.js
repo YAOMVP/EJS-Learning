@@ -78,7 +78,6 @@ app.get("/posts/:urlName", (req, res) => {
 
 
     });
-
 });
 
 
