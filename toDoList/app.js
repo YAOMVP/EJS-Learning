@@ -6,7 +6,7 @@ const items = ["I want to eat", "Eat hot pot", "Eat lamb skewer"];
 let workItems = [];
 const date = require(__dirname + "/date.js");
 
-//register view engine we want to use ejs as our view engine of choicefor this application
+//register view engine we want to use ejs as our view engine of choice for this application
 app.set("view engine", "ejs");
 
 
