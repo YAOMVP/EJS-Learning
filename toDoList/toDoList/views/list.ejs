@@ -10,28 +10,16 @@
 
         <div class="box">
             <!-- newListItems it is the key that contains the value of 'inputs'  -->
-            <!--  for(let i =0; i<newListItems.length;i++){ 
+            <% for(let i =0; i<newListItems.length;i++){ %>
                 <div class="item">
                     <input type="checkbox">
                     <p>
-                      newListItems[i].name  
+                        <%= newListItems[i]  %>
                     </p>
                 </div>
-                 }  -->
+                <% } %>
 
-            <%   newListItems.forEach(item=>{ %>
-                <form action="/delete" method="post">
-                    <div class="item">
-                        <div class="checkbox">
-                            <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
-                        </div>
-                        <p>
-                            <%=  item.name %>
-                        </p>
-                        <input type="hidden" name="listName" value="<%= listTitle %>">
-                    </div>
-                </form>
-                <%  }) %>
+
 
 
                     <form class="item" action="/" method="post">
@@ -41,7 +29,9 @@
 
                     </form>
 
-
+                    <form class="item" action="/deleteItem" method="post">
+                        <button id="deleteButton" type="submit" name="list" value="<%= listTitle %>">-</button>
+                    </form>
         </div>
 
     </body>

@@ -117,8 +117,6 @@ app.post("/tomorrow", (req, res) => {
 app.post("/deleteTom", (req, res) => {
     const btndel = req.body.del;
     console.log(btndel);
-
-
     Follow.findByIdAndRemove(btndel.trim(), (error, results) => {
         if (error) {
             console.log(error);
