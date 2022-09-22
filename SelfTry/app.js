@@ -14,7 +14,6 @@ main().catch(err => console.log(err));
 
 async function main() {
     await mongoose.connect('mongodb://localhost:27017/selfListDB');
-
     // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
 }
 
@@ -36,12 +35,12 @@ const two = new Part({
 const defaultItems = [one, two];
 
 app.get("/", (req, res) => {
-
     Part.find({}, (error, docs) => {
         if (error) {
             console.log(error);
         } else {
             if (docs.length === 0) {
+                //Add one and two the defaultItems as default data render on the screen.
                 Part.insertMany(defaultItems, (error, result) => {
                     if (error) {
                         console.log(error);
@@ -50,15 +49,12 @@ app.get("/", (req, res) => {
                         res.redirect("/");
                     }
                 });
-
             } else {
                 // console.log(docs);
                 res.render("thing", { thingItems: docs });
             }
         }
     });
-
-
 });
 
 app.post("/", (req, res) => {
@@ -76,6 +72,7 @@ app.post("/", (req, res) => {
 app.post("/delete", (req, res) => {
     const del = req.body.del
     console.log(del);
+    //trim() method removes whitespace from both ends of a string and returns a new string, without modifying the original string. 
     Part.findByIdAndRemove(del.trim(), (error, docs) => {
         if (error) {
             console.log(error);
@@ -84,12 +81,11 @@ app.post("/delete", (req, res) => {
             res.redirect("/");
         }
     });
-
 });
 
 
 app.get("/tomorrow", (req, res) => {
-
+    //Find all of the results of the data then use <%= %> render on the screen
     Follow.find({}, (error, results) => {
         if (error) {
             console.log(error);
@@ -98,7 +94,6 @@ app.get("/tomorrow", (req, res) => {
             res.render("tomorrow", { thingItems: results });
         }
     });
-
 });
 
 
@@ -115,6 +110,7 @@ app.post("/tomorrow", (req, res) => {
 });
 
 app.post("/deleteTom", (req, res) => {
+    //del is the name, which means is the key of the button. we need get the value of the button
     const btndel = req.body.del;
     console.log(btndel);
     Follow.findByIdAndRemove(btndel.trim(), (error, results) => {
@@ -125,11 +121,7 @@ app.post("/deleteTom", (req, res) => {
             res.redirect("/tomorrow");
         }
     });
-
 });
-
-
-
 
 app.listen(port, (req, res) => {
     console.log("The server is successfully on port 3000!");
