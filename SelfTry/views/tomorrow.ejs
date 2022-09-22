@@ -1,0 +1,64 @@
+<%- include('header'); -%>
+
+    <section class="vh-100" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-lg-9 col-xl-7">
+                    <div class="card rounded-3">
+                        <div class="card-body p-4">
+                            <h4 class="text-center my-3 pb-3">To Do List Tomorrow
+
+                            </h4>
+                            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-3" action="/tomorrow" method="post">
+                                <div class="col-12">
+                                    <div class="form-outline">
+                                        <input type="text" id="form1" class="form-control" autocomplete="off" placeholder="Enter a task here!" name="thingToDo" />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                </div>
+                            </form>
+
+
+                            <table class="table mb-4">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Todo item</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                    <form action="/deleteTom" method="post">
+                                        <%  thingItems.forEach(thing=>{ %>
+                                            <tr>
+                                                <td>
+                                                    <%= thing.name%>
+                                                </td>
+                                                <td>
+                                                    <button type="submit" class="btn btn-danger" name="del" value="<%= thing._id%>">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <%   }) %>
+                                    </form>
+                                </tbody>
+                            </table>
+                        </div>
+                        <a href="/">
+                            <div class="col-12">
+                                <button type="button" class="btn btn-outline-secondary btn-sm float-end">Today's List</button>
+                            </div>
+                    </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+
+    <%- include('footer'); -%>
