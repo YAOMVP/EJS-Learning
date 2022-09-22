@@ -109,6 +109,7 @@ app.post("/tomorrow", (req, res) => {
     res.redirect("/tomorrow");
 });
 
+
 app.post("/deleteTom", (req, res) => {
     //del is the name, which means is the key of the button. we need get the value of the button
     const btndel = req.body.del;
@@ -122,6 +123,7 @@ app.post("/deleteTom", (req, res) => {
         }
     });
 });
+
 
 app.listen(port, (req, res) => {
     console.log("The server is successfully on port 3000!");
